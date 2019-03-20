@@ -1,0 +1,19 @@
+# Builds
+_old
+
+# Dependency directory
+node_modules
+
+# OSX
+.DS_Store
+
+# Editors
+.idea
+.vscode
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+logs
+*.log
+.yarnclean
