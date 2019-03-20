@@ -2,7 +2,7 @@
 
 Run:
 - yarn 
- -yarn dev
+- yarn dev
 
 Files:
 - src/electron.js: electron initialization
