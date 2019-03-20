@@ -1,8 +1,8 @@
 ## Simple example of electron + trezor-connect integration 
 
 Run:
-yarn 
-yarn dev
+- yarn 
+ -yarn dev
 
 Files:
 - src/electron.js: electron initialization
@@ -14,6 +14,6 @@ Customization:
 - decide if you want to use popup as electron modal or use "new window" (described in ./src/electron)
 
 What needs to be done:
-- Not sure how to enable "native controls" in electron modal, for now i just put "close" button into popup.html - but looking for better solution
-- Communication with trezor-connect on *.trezor.io domain (or localhost). for now there is a problem with "popup > window.opener" which is not visible for popup hosted online, so is not able to "postMessage" to electron
-- Test all builds in different environments (Tested on mac only)
+- Not sure how to enable "native controls" in electron modal on Mac, for now i just put "close" button into popup.html - but looking for better solution
+- Communication with trezor-connect on *.trezor.io domain (or localhost). for now there is a problem with "popup > window.opener" which is not visible for popup hosted online, so is not able to "postMessage" to electron, it is working with "trusted" mode tho
+- Test all builds in different environments (Tested on mac and linux)
