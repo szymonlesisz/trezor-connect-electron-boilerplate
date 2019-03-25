@@ -1862,10 +1862,10 @@ tough-cookie@~2.4.3:
     psl "^1.1.24"
     punycode "^1.4.1"
 
-trezor-connect@7.0.2-electron.1:
-  version "7.0.2-electron.1"
-  resolved "https://registry.yarnpkg.com/trezor-connect/-/trezor-connect-7.0.2-electron.1.tgz#51e32c558a4e80f0af4532973eeb90351aa2a352"
-  integrity sha512-W1COH2S2ShVPdKyr2OWAWLOnhluofkLgNdzWG1V86YIsKTj9ApAJnhY4bDBYqqioiNu6sfGlwhm2z38kFiL6EA==
+trezor-connect@7.0.2-electron.2:
+  version "7.0.2-electron.2"
+  resolved "https://registry.yarnpkg.com/trezor-connect/-/trezor-connect-7.0.2-electron.2.tgz#c4d4ab652d175ef7f1e38f1d98df89a209b9caf8"
+  integrity sha512-yom7JAW8BIL3XmQ8TkweN0ItOnb9jox7NDDnigkc0dGafgENFNKbfJC0ny3IGEvLHu3vtQnmiYOyM/kBHLCOAQ==
   dependencies:
     "@babel/runtime" "^7.3.1"
     events "^3.0.0"

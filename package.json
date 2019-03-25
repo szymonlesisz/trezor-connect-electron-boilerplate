@@ -13,6 +13,6 @@
     "electron-packager": "^13.1.1",
     "electron-winstaller": "^3.0.4",
     "express": "^4.16.4",
-    "trezor-connect": "7.0.2-electron.1"
+    "trezor-connect": "7.0.2-electron.2"
   }
 }
