@@ -37,7 +37,8 @@ TrezorConnect.on(UI_EVENT, event => {
 
 // Initialize TrezorConnect 
 TrezorConnect.init({
-    connectSrc: 'file://' + __dirname + '/trezor-connect/', // set endpoint to application files (otherwise is will use default connect.trezor.io - and it will not work for now)
+    // connectSrc: 'file://' + __dirname + '/trezor-connect/', // for trezor-connect hosted locally set endpoint to application files (ignore this field for connect hosted online, connect.trezor.io will be used by default)
+    connectSrc: 'https://sisyfos.trezor.io/connect-electron/',
     popup: true, // use trezor-connect UI, set it to "false" to get "trusted" mode and get more UI_EVENTs to render your own UI
     webusb: false, // webusb is not supported in electron
     debug: false, // see whats going on inside iframe
@@ -54,7 +55,6 @@ TrezorConnect.init({
 .catch(error => {
     console.error('TrezorConnect init error', error)
 });
-
 
 // click to get public key
 const btn = document.getElementById('get-xpub');
