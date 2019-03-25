@@ -1,1 +1,403 @@
-!function(e){var n={};function t(r){if(n[r])return n[r].exports;var o=n[r]={i:r,l:!1,exports:{}};return e[r].call(o.exports,o,o.exports,t),o.l=!0,o.exports}t.m=e,t.c=n,t.d=function(e,n,r){t.o(e,n)||Object.defineProperty(e,n,{enumerable:!0,get:r})},t.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},t.t=function(e,n){if(1&n&&(e=t(e)),8&n)return e;if(4&n&&"object"==typeof e&&e&&e.__esModule)return e;var r=Object.create(null);if(t.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:e}),2&n&&"string"!=typeof e)for(var o in e)t.d(r,o,function(n){return e[n]}.bind(null,o));return r},t.n=function(e){var n=e&&e.__esModule?function(){return e.default}:function(){return e};return t.d(n,"a",n),n},t.o=function(e,n){return Object.prototype.hasOwnProperty.call(e,n)},t.p="./",t(t.s=0)}([function(e,n,t){"use strict";Object.defineProperty(n,"__esModule",{value:!0}),n.postModuleMessage=function(e,n){var t=e.id,r=e.message;d({id:t,message:r},{postMessage:n})};var r=t(1);"undefined"!=typeof onconnect&&(onconnect=function(e){var n=e.ports[0];n.onmessage=function(e){d(e.data,n)}});var o={},i={},u=null,s=Promise.resolve();function c(){var e=(0,r.create)();u=e,setTimeout(function(){return e.reject(new Error("Timed out"))},1e4)}function f(e){null!=u&&u.resolve(e)}function a(){return null==u?Promise.reject(new Error("???")):u.promise}function l(e){var n=s.then(function(){return e()});s=n.catch(function(){})}function d(e,n){var t=e.id,r=e.message;if("acquire-intent"===r.type){var u=r.path,s=r.previous,d=r.debug;l(function(){return function(e,n,t,r,u){var s=!1,f=t?i:o,l=t?o:i,d=f[e];s=null==d?null!=n:n!==d;return s?(m({type:"wrong-previous-session"},r,u),Promise.resolve()):(c(),m({type:"other-session",otherSession:l[e]},r,u),a().then(function(n){if(n.good){var r=(++y).toString();t&&(r="debug"+r),f[e]=r,m({type:"session-number",number:r},n.id,u)}else m({type:"ok"},n.id,u)}))}(u,s,d,t,n)})}if("acquire-done"===r.type&&function(e){f({good:!0,id:e})}(t),"acquire-failed"===r.type&&function(e){f({good:!1,id:e})}(t),"get-sessions"===r.type&&l(function(){return v(t,n)}),"get-sessions-and-disconnect"===r.type){var g=r.devices;l(function(){return v(t,n,g)})}if("release-onclose"===r.type){var b=r.session;l(function(){return function(e){var n=null;if(Object.keys(o).forEach(function(t){o[t]===e&&(n=t)}),null==n)return Promise.resolve();var t=n;return delete o[t],delete i[t],Promise.resolve()}(b)})}if("release-intent"===r.type){var h=r.session,P=r.debug;l(function(){return function(e,n,t,r){var u=null,s=n?i:o,f=n?o:i;if(Object.keys(s).forEach(function(n){s[n]===e&&(u=n)}),null==u)return m({type:"double-release"},t,r),Promise.resolve();var l=u,d=f[l];return c(),m({type:"path",path:l,otherSession:d},t,r),a().then(function(e){delete s[l],m({type:"ok"},e.id,r)})}(h,P,t,n)})}"release-done"===r.type&&p(t),"enumerate-intent"===r.type&&l(function(){return function(e,n){return c(),m({type:"ok"},e,n),a().then(function(e){m({type:"ok"},e.id,n)})}(t,n)}),"enumerate-done"===r.type&&p(t)}function p(e){f({id:e})}function v(e,n,t){if(null!=t){var r={};t.forEach(function(e){r[e.path]=!0}),Object.keys(o).forEach(function(e){o[e]||delete o[e]}),Object.keys(i).forEach(function(e){i[e]||delete i[e]})}return m({type:"sessions",debugSessions:i,normalSessions:o},e,n),Promise.resolve()}var y=0;function m(e,n,t){t.postMessage({id:n,message:e})}},function(e,n,t){"use strict";Object.defineProperty(n,"__esModule",{value:!0}),n.create=function(){var e=function(e){},n=function(e){},t=new Promise(function(t,r){e=t,n=r}),r=t.then(function(){throw new Error("Promise is always rejecting")});return r.catch(function(){}),{resolve:e,reject:n,promise:t,rejectingPromise:r}},n.resolveTimeoutPromise=function(e,n){return new Promise(function(t){setTimeout(function(){t(n)},e)})},n.rejectTimeoutPromise=function(e,n){return new Promise(function(t,r){setTimeout(function(){r(n)},e)})}}]);
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "./";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.postModuleMessage = postModuleMessage;
+
+var _defered = __webpack_require__(1);
+
+// To ensure that two website don't read from/to Trezor at the same time, I need a sharedworker
+// to synchronize them.
+// However, sharedWorker cannot directly use webusb API... so I need to send messages
+// about intent to acquire/release and then send another message when that is done.
+// Other windows then can acquire/release
+
+// eslint-disable-next-line no-undef
+// $FlowIssue
+if (typeof onconnect !== 'undefined') {
+  // eslint-disable-next-line no-undef
+  onconnect = function onconnect(e) {
+    var port = e.ports[0];
+    port.onmessage = function (e) {
+      handleMessage(e.data, port);
+    };
+  };
+}
+
+// path => session
+var normalSessions = {};
+var debugSessions = {};
+
+var lock = null;
+var waitPromise = Promise.resolve();
+
+function startLock() {
+  var newLock = (0, _defered.create)();
+  lock = newLock;
+  setTimeout(function () {
+    return newLock.reject(new Error('Timed out'));
+  }, 10 * 1000);
+}
+
+function releaseLock(obj) {
+  if (lock == null) {
+    // TODO: ???
+    return;
+  }
+  lock.resolve(obj);
+}
+
+function waitForLock() {
+  if (lock == null) {
+    // TODO: ???
+    return Promise.reject(new Error('???'));
+  }
+  return lock.promise;
+}
+
+function waitInQueue(fn) {
+  var res = waitPromise.then(function () {
+    return fn();
+  });
+  waitPromise = res.catch(function () {});
+}
+
+function handleMessage(_ref, port) {
+  var id = _ref.id,
+      message = _ref.message;
+
+  if (message.type === 'acquire-intent') {
+    var _path = message.path;
+    var previous = message.previous;
+    var debug = message.debug;
+    waitInQueue(function () {
+      return handleAcquireIntent(_path, previous, debug, id, port);
+    });
+  }
+  if (message.type === 'acquire-done') {
+    handleAcquireDone(id); // port is the same as original
+  }
+  if (message.type === 'acquire-failed') {
+    handleAcquireFailed(id); // port is the same as original
+  }
+  if (message.type === 'get-sessions') {
+    waitInQueue(function () {
+      return handleGetSessions(id, port);
+    });
+  }
+
+  if (message.type === 'get-sessions-and-disconnect') {
+    var devices = message.devices;
+    waitInQueue(function () {
+      return handleGetSessions(id, port, devices);
+    });
+  }
+
+  if (message.type === 'release-onclose') {
+    var session = message.session;
+    waitInQueue(function () {
+      return handleReleaseOnClose(session);
+    });
+  }
+
+  if (message.type === 'release-intent') {
+    var _session = message.session;
+    var _debug = message.debug;
+    waitInQueue(function () {
+      return handleReleaseIntent(_session, _debug, id, port);
+    });
+  }
+  if (message.type === 'release-done') {
+    handleReleaseDone(id); // port is the same as original
+  }
+  if (message.type === 'enumerate-intent') {
+    waitInQueue(function () {
+      return handleEnumerateIntent(id, port);
+    });
+  }
+  if (message.type === 'enumerate-done') {
+    handleReleaseDone(id); // port is the same as original
+  }
+}
+
+function handleEnumerateIntent(id, port) {
+  startLock();
+  sendBack({ type: 'ok' }, id, port);
+
+  // if lock times out, promise rejects and queue goes on
+  return waitForLock().then(function (obj) {
+    sendBack({ type: 'ok' }, obj.id, port);
+  });
+}
+
+function handleReleaseDone(id) {
+  releaseLock({ id: id });
+}
+
+function handleReleaseOnClose(session) {
+  var path_ = null;
+  Object.keys(normalSessions).forEach(function (kpath) {
+    if (normalSessions[kpath] === session) {
+      path_ = kpath;
+    }
+  });
+  if (path_ == null) {
+    return Promise.resolve();
+  }
+
+  var path = path_;
+  delete normalSessions[path];
+  delete debugSessions[path];
+  return Promise.resolve();
+}
+
+function handleReleaseIntent(session, debug, id, port) {
+  var path_ = null;
+  var sessions = debug ? debugSessions : normalSessions;
+  var otherSessions = !debug ? debugSessions : normalSessions;
+  Object.keys(sessions).forEach(function (kpath) {
+    if (sessions[kpath] === session) {
+      path_ = kpath;
+    }
+  });
+  if (path_ == null) {
+    sendBack({ type: 'double-release' }, id, port);
+    return Promise.resolve();
+  }
+
+  var path = path_;
+
+  var otherSession = otherSessions[path];
+
+  startLock();
+  sendBack({ type: 'path', path: path, otherSession: otherSession }, id, port);
+
+  // if lock times out, promise rejects and queue goes on
+  return waitForLock().then(function (obj) {
+    // failure => nothing happens, but still has to reply "ok"
+    delete sessions[path];
+    sendBack({ type: 'ok' }, obj.id, port);
+  });
+}
+
+function handleGetSessions(id, port, devices) {
+  if (devices != null) {
+    var connected = {};
+    devices.forEach(function (d) {
+      connected[d.path] = true;
+    });
+    Object.keys(normalSessions).forEach(function (path) {
+      if (!normalSessions[path]) {
+        delete normalSessions[path];
+      }
+    });
+    Object.keys(debugSessions).forEach(function (path) {
+      if (!debugSessions[path]) {
+        delete debugSessions[path];
+      }
+    });
+  }
+  sendBack({ type: 'sessions', debugSessions: debugSessions, normalSessions: normalSessions }, id, port);
+  return Promise.resolve();
+}
+
+var lastSession = 0;
+function handleAcquireDone(id) {
+  releaseLock({ good: true, id: id });
+}
+
+function handleAcquireFailed(id) {
+  releaseLock({ good: false, id: id });
+}
+
+function handleAcquireIntent(path, previous, debug, id, port) {
+  var error = false;
+  var thisTable = debug ? debugSessions : normalSessions;
+  var otherTable = !debug ? debugSessions : normalSessions;
+  var realPrevious = thisTable[path];
+
+  if (realPrevious == null) {
+    error = previous != null;
+  } else {
+    error = previous !== realPrevious;
+  }
+  if (error) {
+    sendBack({ type: 'wrong-previous-session' }, id, port);
+    return Promise.resolve();
+  } else {
+    startLock();
+    sendBack({ type: 'other-session', otherSession: otherTable[path] }, id, port);
+    // if lock times out, promise rejects and queue goes on
+    return waitForLock().then(function (obj) {
+      if (obj.good) {
+        lastSession++;
+        var session = lastSession.toString();
+        if (debug) {
+          session = 'debug' + session;
+        }
+        thisTable[path] = session;
+        sendBack({ type: 'session-number', number: session }, obj.id, port);
+      } else {
+        // failure => nothing happens, but still has to reply "ok"
+        sendBack({ type: 'ok' }, obj.id, port);
+      }
+    });
+  }
+}
+
+function sendBack(message, id, port) {
+  port.postMessage({ id: id, message: message });
+}
+
+// when shared worker is not loaded as a shared loader, use it as a module instead
+function postModuleMessage(_ref2, fn) {
+  var id = _ref2.id,
+      message = _ref2.message;
+
+  handleMessage({ id: id, message: message }, { postMessage: fn });
+}
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.create = create;
+exports.resolveTimeoutPromise = resolveTimeoutPromise;
+exports.rejectTimeoutPromise = rejectTimeoutPromise;
+function create() {
+  var localResolve = function localResolve(t) {};
+  var localReject = function localReject(e) {};
+
+  var promise = new Promise(function (resolve, reject) {
+    localResolve = resolve;
+    localReject = reject;
+  });
+  var rejectingPromise = promise.then(function () {
+    throw new Error("Promise is always rejecting");
+  });
+  rejectingPromise.catch(function () {});
+
+  return {
+    resolve: localResolve,
+    reject: localReject,
+    promise: promise,
+    rejectingPromise: rejectingPromise
+  };
+}
+
+function resolveTimeoutPromise(delay, result) {
+  return new Promise(function (resolve) {
+    setTimeout(function () {
+      resolve(result);
+    }, delay);
+  });
+}
+
+function rejectTimeoutPromise(delay, error) {
+  return new Promise(function (resolve, reject) {
+    setTimeout(function () {
+      reject(error);
+    }, delay);
+  });
+}
+
+/***/ })
+/******/ ]);

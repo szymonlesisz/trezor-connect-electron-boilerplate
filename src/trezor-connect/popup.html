@@ -13,7 +13,7 @@
     <meta name="theme-color" content="#ffffff" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="-1" />
-    <link href="./css/popup.dd28658a6acc458a9b06.css" rel="stylesheet">
+    <link href="./css/popup.4da4e38936bbabc923c4.css" rel="stylesheet">
 </head>
 <body>
     <main>
@@ -1562,15 +1562,14 @@
 
     <script type="text/javascript" async="false">
         if (window.opener) {
-            window.opener.postMessage({
-                event: 'UI_EVENT',
-                type: 'popup-bootstrap',
-            }, '*');
+            window.opener.postMessage({ type: 'popup-bootstrap' }, '*');
+        } else {
+            window.postMessage({ type: 'popup-bootstrap' }, '*');
         }
 
         const popupScript = document.createElement('script');
         popupScript.setAttribute('type', 'text/javascript');
-        popupScript.setAttribute('src', './js/popup.dd28658a6acc458a9b06.js');
+        popupScript.setAttribute('src', './js/popup.4da4e38936bbabc923c4.js');
         popupScript.setAttribute('async', 'false');
         document.body.appendChild(popupScript);
     </script>

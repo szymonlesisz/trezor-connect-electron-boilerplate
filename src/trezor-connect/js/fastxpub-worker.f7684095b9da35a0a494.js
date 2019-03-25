@@ -1,1 +1,345 @@
-!function(e){var n={};function a(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,a),t.l=!0,t.exports}a.m=e,a.c=n,a.d=function(e,n,r){a.o(e,n)||Object.defineProperty(e,n,{enumerable:!0,get:r})},a.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},a.t=function(e,n){if(1&n&&(e=a(e)),8&n)return e;if(4&n&&"object"==typeof e&&e&&e.__esModule)return e;var r=Object.create(null);if(a.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:e}),2&n&&"string"!=typeof e)for(var t in e)a.d(r,t,function(n){return e[n]}.bind(null,t));return r},a.n=function(e){var n=e&&e.__esModule?function(){return e.default}:function(){return e};return a.d(n,"a",n),n},a.o=function(e,n){return Object.prototype.hasOwnProperty.call(e,n)},a.p="./",a(a.s=1)}([function(e,n){},function(module,exports,__webpack_require__){(function(process){function da(){function e(){}function n(){}return{r:new Promise(function(a,r){n=a,e=r}),resolve:n,reject:e}}function sa(u){function H(e){eval.call(null,e)}function n(e,n){e||D("Assertion failed: "+n)}function Y(b){var d=a["_"+b];if(!d)try{d=eval("_"+b)}catch(e){}return n(d,"Cannot call unknown function "+b+" (perhaps LLVM optimizations or closure removed it?)"),d}function va(e,n,a){switch("*"===(a=a||"i8").charAt(a.length-1)&&(a="i32"),a){case"i1":case"i8":q[e>>0]=n;break;case"i16":R[e>>1]=n;break;case"i32":m[e>>2]=n;break;case"i64":tempI64=[n>>>0,(tempDouble=n,1<=+Xa(tempDouble)?0<tempDouble?(0|Ya(+Za(tempDouble/4294967296),4294967295))>>>0:~~+$a((tempDouble-+(~~tempDouble>>>0))/4294967296)>>>0:0)],m[e>>2]=tempI64[0],m[e+4>>2]=tempI64[1];break;case"float":Z[e>>2]=n;break;case"double":aa[e>>3]=n;break;default:D("invalid type for setValue: "+a)}}function wa(e,n){switch("*"===(n=n||"i8").charAt(n.length-1)&&(n="i32"),n){case"i1":case"i8":return q[e>>0];case"i16":return R[e>>1];case"i32":case"i64":return m[e>>2];case"float":return Z[e>>2];case"double":return aa[e>>3];default:D("invalid type for setValue: "+n)}return null}function S(e,a,r,i){var o,u;"number"==typeof e?(o=!0,u=e):(o=!1,u=e.length);var s,c,l,p="string"==typeof a?a:null;if(s=4==r?i:["function"==typeof T?T:f.n,f.f,f.n,f.p][void 0===r?2:r](Math.max(u,p?1:a.length)),o){for(i=s,n(0==(3&s)),e=s+(-4&u);i<e;i+=4)m[i>>2]=0;for(e=s+u;i<e;)q[i++>>0]=0;return s}if("i8"===p)return e.subarray||e.slice?t.set(e,s):t.set(new Uint8Array(e),s),s;for(i=0;i<u;)"function"==typeof(o=e[i])&&(o=f.P(o)),0===(r=p||a[i])?i++:("i64"==r&&(r="i32"),va(s+i,o,r),l!==r&&(c=f.q(r),l=r),i+=c);return s}function J(e,n){if(0===n||!e)return"";for(var r,i=0,o=0;(i|=r=t[e+o>>0],0!=r||n)&&(o++,!n||o!=n););if(n||(n=o),r="",128>i){for(;0<n;)i=String.fromCharCode.apply(String,t.subarray(e,e+Math.min(n,1024))),r=r?r+i:i,e+=1024,n-=1024;return r}return a.UTF8ToString(e)}function ya(e,n){for(var a=n;e[a];)++a;if(16<a-n&&e.subarray&&za)return za.decode(e.subarray(n,a));var r,t,i,o,u;for(a="";;){if(!(r=e[n++]))return a;128&r?(t=63&e[n++],192==(224&r)?a+=String.fromCharCode((31&r)<<6|t):(i=63&e[n++],224==(240&r)?r=(15&r)<<12|t<<6|i:(o=63&e[n++],240==(248&r)?r=(7&r)<<18|t<<12|i<<6|o:(u=63&e[n++],248==(252&r)?r=(3&r)<<24|t<<18|i<<12|o<<6|u:r=(1&r)<<30|t<<24|i<<18|o<<12|u<<6|63&e[n++])),65536>r?a+=String.fromCharCode(r):(r-=65536,a+=String.fromCharCode(55296|r>>10,56320|1023&r)))):a+=String.fromCharCode(r)}}function Aa(e){return ya(t,e)}function ea(e,n,a,r){if(!(0<r))return 0;var t=a;r=a+r-1;for(var i=0;i<e.length;++i){var o=e.charCodeAt(i);if(55296<=o&&57343>=o&&(o=65536+((1023&o)<<10)|1023&e.charCodeAt(++i)),127>=o){if(a>=r)break;n[a++]=o}else{if(2047>=o){if(a+1>=r)break;n[a++]=192|o>>6}else{if(65535>=o){if(a+2>=r)break;n[a++]=224|o>>12}else{if(2097151>=o){if(a+3>=r)break;n[a++]=240|o>>18}else{if(67108863>=o){if(a+4>=r)break;n[a++]=248|o>>24}else{if(a+5>=r)break;n[a++]=252|o>>30,n[a++]=128|o>>24&63}n[a++]=128|o>>18&63}n[a++]=128|o>>12&63}n[a++]=128|o>>6&63}n[a++]=128|63&o}}return n[a]=0,a-t}function U(e,n,a){return ea(e,t,n,a)}function ba(e){for(var n=0,a=0;a<e.length;++a){var r=e.charCodeAt(a);55296<=r&&57343>=r&&(r=65536+((1023&r)<<10)|1023&e.charCodeAt(++a)),127>=r?++n:n=2047>=r?n+2:65535>=r?n+3:2097151>=r?n+4:67108863>=r?n+5:n+6}return n}function ab(e){return e.replace(/__Z[\w\d_]+/g,function(e){var n;e:{var r=a.___cxa_demangle||a.__cxa_demangle;if(r)try{var t=e.substr(1),i=ba(t)+1,o=T(i);U(t,o,i);var u=T(4),s=r(o,0,0,u);if(0===wa(u,"i32")&&s){n=J(s);break e}}catch(e){}finally{o&&fa(o),u&&fa(u),s&&fa(s)}else f.b("warning: build with  -s DEMANGLE_SUPPORT=1  to link in libcxxabi demangling");n=e}return e===n?e:e+" ["+n+"]"})}function ga(){var e;e:{if(!(e=Error()).stack){try{throw Error(0)}catch(n){e=n}if(!e.stack){e="(no stack trace available)";break e}}e=e.stack.toString()}return a.extraStackTrace&&(e+="\n"+a.extraStackTrace()),ab(e)}function Ba(){a.HEAP8=q=new Int8Array(k),a.HEAP16=R=new Int16Array(k),a.HEAP32=m=new Int32Array(k),a.HEAPU8=t=new Uint8Array(k),a.HEAPU16=Ca=new Uint16Array(k),a.HEAPU32=Da=new Uint32Array(k),a.HEAPF32=Z=new Float32Array(k),a.HEAPF64=aa=new Float64Array(k)}function ha(){D("Cannot enlarge memory arrays. Either (1) compile with  -s TOTAL_MEMORY=X  with X higher than the current value "+I+", (2) compile with  -s ALLOW_MEMORY_GROWTH=1  which allows increasing the size at runtime, or (3) if you want malloc to return NULL (0) instead of this abort, compile with  -s ABORTING_MALLOC=0 ")}function N(e){for(;0<e.length;){var n=e.shift();if("function"==typeof n)n();else{var r=n.L;"number"==typeof r?void 0===n.k?a.dynCall_v(r):a.dynCall_vi(r,n.k):r(void 0===n.k?null:n.k)}}}function Ea(e){Fa.unshift(e)}function Ga(e){Ha.unshift(e)}function ia(e,n,a){return e=ea(e,a=Array(0<a?a:ba(e)+1),0,a.length),n&&(a.length=e),a}function Ia(e,n){q.set(e,n)}function Ja(e,n,a){for(var r=0;r<e.length;++r)q[n++>>0]=e.charCodeAt(r);a||(q[n>>0]=0)}function ja(){K++,a.monitorRunDependencies&&a.monitorRunDependencies(K)}function ka(){if(K--,a.monitorRunDependencies&&a.monitorRunDependencies(K),0==K&&(null!==la&&(clearInterval(la),la=null),V)){var e=V;V=null,e()}}function ma(){var e=ma;return e.a||(e.a=[]),e.a.push(f.g()),e.a.length-1}function O(e){this.name="ExitStatus",this.message="Program terminated with exit("+e+")",this.status=e}function na(e){function n(){if(!a.calledRun&&(a.calledRun=!0,!W)){if(X||(X=!0,N(ca)),N(Ka),a.onRuntimeInitialized&&a.onRuntimeInitialized(),a._main&&La&&a.callMain(e),a.postRun)for("function"==typeof a.postRun&&(a.postRun=[a.postRun]);a.postRun.length;)Ga(a.postRun.shift());N(Ha)}}if(e=e||a.arguments,null===Ma&&(Ma=Date.now()),!(0<K)){if(a.preRun)for("function"==typeof a.preRun&&(a.preRun=[a.preRun]);a.preRun.length;)Ea(a.preRun.shift());N(Fa),0<K||a.calledRun||(a.setStatus?(a.setStatus("Running..."),setTimeout(function(){setTimeout(function(){a.setStatus("")},1),n()},1)):n())}}function Na(e,n){n&&a.noExitRuntime||(!a.noExitRuntime&&(W=!0,z=bb,N(Oa),a.onExit)&&a.onExit(e),P&&process.exit(e),a.quit(e,new O(e)))}function D(e){void 0!==e?(a.print(e),a.e(e),e=JSON.stringify(e)):e="",W=!0;var n="abort("+e+") at "+ga()+"\nIf this abort() is unexpected, build with -s ASSERTIONS=1 which can give more information.";throw Pa&&Pa.forEach(function(a){n=a(n,e)}),n}var a={};a.wasmBinary=new Uint8Array(u),a||(a=eval("(function() { try { return Module || {} } catch(e) { return {} } })()"));var v={},p;for(p in a)a.hasOwnProperty(p)&&(v[p]=a[p]);var y=!1,L=!1,P=!1,G=!1,oa,pa;if(a.ENVIRONMENT)if("WEB"===a.ENVIRONMENT)y=!0;else if("WORKER"===a.ENVIRONMENT)L=!0;else if("NODE"===a.ENVIRONMENT)P=!0;else{if("SHELL"!==a.ENVIRONMENT)throw Error("The provided Module['ENVIRONMENT'] value is not valid. It must be one of: WEB|WORKER|NODE|SHELL.");G=!0}else y="object"==typeof window,L="function"==typeof importScripts,P="object"==typeof process&&!y&&!L,G=!y&&!P&&!L;if(P)a.print||(a.print=console.log),a.printErr||(a.printErr=console.warn),a.read=function(e,n){oa||(oa=__webpack_require__(0)),pa||(pa=__webpack_require__(0)),e=pa.normalize(e);var a=oa.readFileSync(e);return n?a:a.toString()},a.readBinary=function(e){return(e=a.read(e,!0)).buffer||(e=new Uint8Array(e)),n(e.buffer),e},a.load=function(e){H(read(e))},a.thisProgram||(a.thisProgram=1<process.argv.length?process.argv[1].replace(/\\/g,"/"):"unknown-program"),a.arguments=process.argv.slice(2),module.exports=a,process.on("uncaughtException",function(e){if(!(e instanceof O))throw e}),a.inspect=function(){return"[Emscripten Module object]"};else if(G)a.print||(a.print=print),"undefined"!=typeof printErr&&(a.printErr=printErr),a.read="undefined"!=typeof read?read:function(){throw"no read() available"},a.readBinary=function(e){return"function"==typeof readbuffer?new Uint8Array(readbuffer(e)):(n("object"==typeof(e=read(e,"binary"))),e)},"undefined"!=typeof scriptArgs?a.arguments=scriptArgs:void 0!==arguments&&(a.arguments=arguments),"function"==typeof quit&&(a.quit=function(e){quit(e)}),eval("if (typeof gc === 'function' && gc.toString().indexOf('[native code]') > 0) var gc = undefined");else{if(!y&&!L)throw"Unknown runtime environment. Where are we?";a.read=function(e){var n=new XMLHttpRequest;return n.open("GET",e,!1),n.send(null),n.responseText},L&&(a.readBinary=function(e){var n=new XMLHttpRequest;return n.open("GET",e,!1),n.responseType="arraybuffer",n.send(null),new Uint8Array(n.response)}),a.readAsync=function(e,n,a){var r=new XMLHttpRequest;r.open("GET",e,!0),r.responseType="arraybuffer",r.onload=function(){200==r.status||0==r.status&&r.response?n(r.response):a()},r.onerror=a,r.send(null)},void 0!==arguments&&(a.arguments=arguments),"undefined"!=typeof console?(a.print||(a.print=function(e){console.log(e)}),a.printErr||(a.printErr=function(e){console.warn(e)})):a.print||(a.print=function(){}),L&&(a.load=importScripts),void 0===a.setWindowTitle&&(a.setWindowTitle=function(e){document.title=e})}for(p in!a.load&&a.read&&(a.load=function(e){H(a.read(e))}),a.print||(a.print=function(){}),a.printErr||(a.printErr=a.print),a.arguments||(a.arguments=[]),a.thisProgram||(a.thisProgram="./this.program"),a.quit||(a.quit=function(e,n){throw n}),a.print=a.print,a.e=a.printErr,a.preRun=[],a.postRun=[],v)v.hasOwnProperty(p)&&(a[p]=v[p]);var v=void 0,f={s:function(e){return tempRet0=e},A:function(){return tempRet0},g:function(){return z},c:function(e){z=e},q:function(e){switch(e){case"i1":case"i8":return 1;case"i16":return 2;case"i32":return 4;case"i64":return 8;case"float":return 4;case"double":return 8;default:return"*"===e[e.length-1]?f.j:"i"===e[0]?(n(0==(e=parseInt(e.substr(1)))%8),e/8):0}},w:function(e){return Math.max(f.q(e),f.j)},C:16,S:function(e,a){return"double"===a||"i64"===a?7&e&&(n(4==(7&e)),e+=4):n(0==(3&e)),e},M:function(e,n,a){return a||"i64"!=e&&"double"!=e?e?Math.min(n||(e?f.w(e):0),f.j):Math.min(n,8):8},l:function(e,n,r){return r&&r.length?a["dynCall_"+e].apply(null,[n].concat(r)):a["dynCall_"+e].call(null,n)},d:[],t:function(e){for(var n=0;n<f.d.length;n++)if(!f.d[n])return f.d[n]=e,2*(1+n);throw"Finished up all reserved function pointers. Use a higher value for RESERVED_FUNCTION_POINTERS."},B:function(e){f.d[(e-2)/2]=null},b:function(e){f.b.a||(f.b.a={}),f.b.a[e]||(f.b.a[e]=1,a.e(e))},m:{},O:function(e,a){n(a),f.m[a]||(f.m[a]={});var r=f.m[a];return r[e]||(r[e]=1===a.length?function(){return f.l(a,e)}:2===a.length?function(n){return f.l(a,e,[n])}:function(){return f.l(a,e,Array.prototype.slice.call(arguments))}),r[e]},N:function(){throw"You must build with -s RETAIN_COMPILER_SETTINGS=1 for Runtime.getCompilerSetting or emscripten_get_compiler_setting to work"},f:function(e){var n=z;return z=(z=z+e|0)+15&-16,n},n:function(e){var n=A;return A=(A=A+e|0)+15&-16,n},p:function(e){var n=m[M>>2];return e=-16&(n+e+15|0),m[M>>2]=e,(e=e>=I)&&(ha(),e=!0),e?(m[M>>2]=n,0):n},o:function(e,n){return Math.ceil(e/(n||16))*(n||16)},R:function(e,n,a){return a?+(e>>>0)+4294967296*+(n>>>0):+(e>>>0)+4294967296*+(0|n)},h:1024,j:4,D:0};a.Runtime=f,f.addFunction=f.t,f.removeFunction=f.B;var W=0,Qa,Ra;!function(){function a(e){return{arguments:(e=e.toString().match(r).slice(1))[0],body:e[1],returnValue:e[2]}}function d(){if(!h)for(var e in h={},c)c.hasOwnProperty(e)&&(h[e]=a(c[e]))}var c={stackSave:function(){f.g()},stackRestore:function(){f.c()},arrayToC:function(e){var n=f.f(e.length);return Ia(e,n),n},stringToC:function(e){var n=0;if(null!==e&&void 0!==e&&0!==e){var a=1+(e.length<<2);U(e,n=f.f(a),a)}return n}},e={string:c.stringToC,array:c.arrayToC};Ra=function(n,a,r,t,i){n=Y(n);var o=[],u=0;if(t)for(var s=0;s<t.length;s++){var c=e[r[s]];c?(0===u&&(u=f.g()),o[s]=c(t[s])):o[s]=t[s]}if(r=n.apply(null,o),"string"===a&&(r=J(r)),0!==u){if(i&&i.async)return void EmterpreterAsync.F.push(function(){f.c(u)});f.c(u)}return r};var r=/^function\s*[a-zA-Z$_0-9]*\s*\(([^)]*)\)\s*{\s*([^*]*?)[\s;]*(?:return\s*(.*?)[;\s]*)?}$/,h=null;Qa=function(c,e,f){f=f||[];var r=Y(c);c=f.every(function(e){return"number"===e});var n="string"!==e;if(n&&c)return r;var p=f.map(function(e,n){return"$"+n});e="(function("+p.join(",")+") {";var m=f.length;if(!c){d(),e+="var stack = "+h.stackSave.body+";";for(var x=0;x<m;x++){var t=p[x],k=f[x];"number"!==k&&(k=h[k+"ToC"],e+="var "+k.arguments+" = "+t+";",e+=k.body+";",e+=t+"=("+k.returnValue+");")}}return f=a(function(){return r}).returnValue,e+="var ret = "+f+"("+p.join(",")+");",n||(f=a(function(){return J}).returnValue,e+="ret = "+f+"(ret);"),c||(d(),e+=h.stackRestore.body.replace("()","(stack)")+";"),eval(e+"return ret})")}}(),a.ccall=Ra,a.cwrap=Qa,a.setValue=va,a.getValue=wa,a.ALLOC_NORMAL=0,a.ALLOC_STACK=1,a.ALLOC_STATIC=2,a.ALLOC_DYNAMIC=3,a.ALLOC_NONE=4,a.allocate=S,a.getMemory=function(e){return qa?X?T(e):f.p(e):f.n(e)},a.Pointer_stringify=J,a.AsciiToString=function(e){for(var n="";;){var a=q[e++>>0];if(!a)return n;n+=String.fromCharCode(a)}},a.stringToAscii=function(e,n){return Ja(e,n,!1)};var za="undefined"!=typeof TextDecoder?new TextDecoder("utf8"):void 0;a.UTF8ArrayToString=ya,a.UTF8ToString=Aa,a.stringToUTF8Array=ea,a.stringToUTF8=U,a.lengthBytesUTF8=ba,"undefined"!=typeof TextDecoder&&new TextDecoder("utf-16le"),a.stackTrace=ga;var k,q,t,R,Ca,m,Da,Z,aa,A,qa,z,M,v=A=y=z=p=y=M=0;qa=!1,p=a.TOTAL_STACK||5242880;var I=a.TOTAL_MEMORY||16777216;if(I<p&&a.e("TOTAL_MEMORY should be larger than TOTAL_STACK, was "+I+"! (TOTAL_STACK="+p+")"),a.buffer?k=a.buffer:"object"==typeof WebAssembly&&"function"==typeof WebAssembly.Memory?(a.wasmMemory=new WebAssembly.Memory({initial:I/65536,maximum:I/65536}),k=a.wasmMemory.buffer):k=new ArrayBuffer(I),Ba(),m[0]=1668509029,R[1]=25459,115!==t[2]||99!==t[3])throw"Runtime error: expected the system to be little-endian!";a.HEAP=void 0,a.buffer=k,a.HEAP8=q,a.HEAP16=R,a.HEAP32=m,a.HEAPU8=t,a.HEAPU16=Ca,a.HEAPU32=Da,a.HEAPF32=Z,a.HEAPF64=aa;var Fa=[],ca=[],Ka=[],Oa=[],Ha=[],X=!1;if(a.addOnPreRun=Ea,a.addOnInit=function(e){ca.unshift(e)},a.addOnPreMain=function(e){Ka.unshift(e)},a.addOnExit=function(e){Oa.unshift(e)},a.addOnPostRun=Ga,a.intArrayFromString=ia,a.intArrayToString=function(e){for(var n=[],a=0;a<e.length;a++){var r=e[a];255<r&&(r&=255),n.push(String.fromCharCode(r))}return n.join("")},a.writeStringToMemory=function(e,n,a){var r,t;f.b("writeStringToMemory is deprecated and should not be called! Use stringToUTF8() instead!"),a&&(t=n+ba(e),r=q[t]),U(e,n,1/0),a&&(q[t]=r)},a.writeArrayToMemory=Ia,a.writeAsciiToMemory=Ja,Math.imul&&-5===Math.imul(4294967295,5)||(Math.imul=function(e,n){var a=65535&e,r=65535&n;return a*r+((e>>>16)*r+a*(n>>>16)<<16)|0}),Math.Q=Math.imul,!Math.fround){var Sa=new Float32Array(1);Math.fround=function(e){return Sa[0]=e,Sa[0]}}Math.K=Math.fround,Math.clz32||(Math.clz32=function(e){e>>>=0;for(var n=0;32>n;n++)if(e&1<<31-n)return n;return 32}),Math.H=Math.clz32,Math.trunc||(Math.trunc=function(e){return 0>e?Math.ceil(e):Math.floor(e)}),Math.trunc=Math.trunc;var Xa=Math.abs,$a=Math.ceil,Za=Math.floor,Ya=Math.min,K=0,la=null,V=null;a.addRunDependency=ja,a.removeRunDependency=ka,a.preloadedImages={},a.preloadedAudios={};var E=null;!function(b){function d(e){0<e%(n=b.usingWasm?65536:16777216)&&(e+=n-e%n);var n,a=(n=b.buffer).byteLength;if(!b.usingWasm)return x.__growWasmMemory((e-a)/65536),b.buffer!==n?b.buffer:null;try{return-1!==b.wasmMemory.grow((e-a)/65536)?b.buffer=b.wasmMemory.buffer:null}catch(e){return null}}function c(e,n){var a=q;if(0>e.indexOf("."))a=(a||{})[e];else{var r=e.split(".");a=((a=(a||{})[r[0]])||{})[r[1]]}return n&&(a=(a||{})[n]),void 0===a&&D("bad lookupImport to ("+e+")."+n),a}function e(e){var n=b.buffer;e.byteLength<n.byteLength&&b.printErr("the new buffer in mergeMemory is smaller than the previous one. in native wasm, we should grow memory here");n=new Int8Array(n);var r=new Int8Array(e);E||n.set(r.subarray(b.STATIC_BASE,b.STATIC_BASE+b.STATIC_BUMP),b.STATIC_BASE),r.set(n),a.buffer=k=e,Ba()}function f(){var e;if(b.wasmBinary)e=b.wasmBinary,e=new Uint8Array(e);else{if(!b.readBinary)throw"on the web, we need the wasm binary to be preloaded and set on Module['wasmBinary']. emcc.py will do that for you when generating HTML (but not JS)";e=b.readBinary(m)}return e}function h(){return b.wasmBinary||"function"!=typeof fetch?new Promise(function(e){e(f())}):fetch(m,{I:"same-origin"}).then(function(e){if(!e.ok)throw"failed to load wasm binary file at '"+m+"'";return e.arrayBuffer()})}function g(a,c,d){return"function"==typeof b.asm&&b.asm!==y||(b.asmPreload?b.asm=b.asmPreload:eval(b.read(v))),"function"!=typeof b.asm?(b.printErr("asm evalling did not set the module properly"),!1):b.asm(a,c,d)}function l(n,a){function r(n){(x=n.exports).memory&&e(x.memory),b.asm=x,b.usingWasm=!0,ka()}if("object"!=typeof WebAssembly)return b.printErr("no native wasm support detected"),!1;if(!(b.wasmMemory instanceof WebAssembly.Memory))return b.printErr("no native wasm Memory in use"),!1;if(a.memory=b.wasmMemory,q.global={NaN:NaN,Infinity:1/0},q["global.Math"]=n.Math,q.env=a,ja(),b.instantiateWasm)try{return b.instantiateWasm(q,r)}catch(e){return b.printErr("Module.instantiateWasm callback failed with error: "+e),!1}return h().then(function(e){return WebAssembly.instantiate(e,q)}).then(function(e){r(e.instance)}).catch(function(e){b.printErr("failed to asynchronously prepare wasm: "+e),b.quit(1,e)}),{}}var p=b.wasmJSMethod||"native-wasm";b.wasmJSMethod=p;var t=b.wasmTextFile||"fastxpub.wast",m=b.wasmBinaryFile||"fastxpub.wasm",v=b.asmjsCodeFile||"fastxpub.temp.asm.js";"function"==typeof b.locateFile&&(t=b.locateFile(t),m=b.locateFile(m),v=b.locateFile(v));var q={global:null,env:null,asm2wasm:{"f64-rem":function(e,n){return e%n},"f64-to-int":function(e){return 0|e},"i32s-div":function(e,n){return(0|e)/(0|n)|0},"i32u-div":function(e,n){return(e>>>0)/(n>>>0)>>>0},"i32s-rem":function(e,n){return(0|e)%(0|n)|0},"i32u-rem":function(e,n){return(e>>>0)%(n>>>0)>>>0},debugger:function(){}},parent:b},x=null;b.asmPreload=b.asm;var u=b.reallocBuffer;b.reallocBuffer=function(e){return"asmjs"===z?u(e):d(e)};var z="";b.asm=function(a,r,i){if(!r.table){void 0===(s=b.wasmTableSize)&&(s=1024);var o=b.wasmMaxTableSize;r.table="object"==typeof WebAssembly&&"function"==typeof WebAssembly.Table?void 0!==o?new WebAssembly.Table({initial:s,maximum:o,element:"anyfunc"}):new WebAssembly.Table({initial:s,element:"anyfunc"}):Array(s),b.wasmTable=r.table}r.memoryBase||(r.memoryBase=b.STATIC_BASE),r.tableBase||(r.tableBase=0);var u,s=p.split(",");for(o=0;o<s.length;o++)if(z=u=s[o],"native-wasm"===u){if(u=l(a,r))break}else if("asmjs"===u){if(u=g(a,r,i))break}else{if("interpret-asm2wasm"!==u&&"interpret-s-expr"!==u&&"interpret-binary"!==u)throw"bad method: "+u;var m=a,d=r,y=i;if("function"!=typeof WasmJS)b.printErr("WasmJS not detected - polyfill not bundled?"),u=!1;else{var h=WasmJS({});if(h.outside=b,h.info=q,h.lookupImport=c,n(y===b.buffer),q.global=m,q.env=d,n(y===b.buffer),d.memory=y,n(d.memory instanceof ArrayBuffer),h.providedTotalMemory=b.buffer.byteLength,m=void 0,m="interpret-binary"===u?f():b.read("interpret-asm2wasm"==u?v:t),d=void 0,"interpret-asm2wasm"==u)d=h._malloc(m.length+1),h.writeAsciiToMemory(m,d),h._load_asm2wasm(d);else if("interpret-s-expr"===u)d=h._malloc(m.length+1),h.writeAsciiToMemory(m,d),h._load_s_expr2wasm(d);else{if("interpret-binary"!==u)throw"what? "+u;d=h._malloc(m.length),h.HEAPU8.set(m,d),h._load_binary2wasm(d,m.length)}h._free(d),h._instantiate(d),b.newBuffer&&(e(b.newBuffer),b.newBuffer=null),u=x=h.asmExports}if(u)break}if(!u)throw"no binaryen method succeeded. consider enabling more options, like interpreting, if you want that: https://github.com/kripken/emscripten/wiki/WebAssembly#binaryen-methods";return u};var y=b.asm}(a),v=f.h,A=v+77952,ca.push(),E=0<=a.wasmJSMethod.indexOf("asmjs")||0<=a.wasmJSMethod.indexOf("interpret-asm2wasm")?"fastxpub.js.mem":null,a.STATIC_BASE=v,a.STATIC_BUMP=77952,v=A,A+=16,a._memset=cb,a._llvm_bswap_i32=ra,a._sbrk=db,a._memcpy=eb,M=S(1,"i32",2),y=z=f.o(A),p=y+p,y=f.o(p),m[M>>2]=y,qa=!0,a.wasmTableSize=0,a.wasmMaxTableSize=0,a.u={Math:Math,Int8Array:Int8Array,Int16Array:Int16Array,Int32Array:Int32Array,Uint8Array:Uint8Array,Uint16Array:Uint16Array,Uint32Array:Uint32Array,Float32Array:Float32Array,Float64Array:Float64Array,NaN:NaN,Infinity:1/0},a.v={abort:D,assert:n,enlargeMemory:function(){ha()},getTotalMemory:function(){return I},abortOnCannotGrowMemory:ha,_ed25519_publickey_keccak:function(){a.printErr("missing function: ed25519_publickey_keccak"),D(-1)},_abort:function(){a.abort()},_curve25519_scalarmult_basepoint:function(){a.printErr("missing function: curve25519_scalarmult_basepoint"),D(-1)},___setErrNo:function(e){return a.___errno_location&&(m[a.___errno_location()>>2]=e),e},_llvm_stacksave:ma,_ed25519_publickey_sha3:function(){a.printErr("missing function: ed25519_publickey_sha3"),D(-1)},_emscripten_memcpy_big:function(e,n,a){return t.set(t.subarray(n,n+a),e),e},_llvm_bswap_i64:function(e,n){var a=ra(n)>>>0,r=ra(e)>>>0;return 0|(f.s(r),a)},_llvm_stackrestore:function(e){var n=ma,a=n.a[e];n.a.splice(e,1),f.c(a)},___assert_fail:function(e,n,a,r){throw W=!0,"Assertion failed: "+J(e)+", at: "+[n?J(n):"unknown filename",a,r?J(r):"unknown function"]+" at "+ga()},_ed25519_publickey:function(){a.printErr("missing function: ed25519_publickey"),D(-1)},DYNAMICTOP_PTR:M,tempDoublePtr:v,ABORT:W,STACKTOP:z,STACK_MAX:p},v=a.asm(a.u,a.v,k),a.asm=v,a._hdnode_serialize_public=function(){return a.asm._hdnode_serialize_public.apply(null,arguments)},a.getTempRet0=function(){return a.asm.getTempRet0.apply(null,arguments)};var fa=a._free=function(){return a.asm._free.apply(null,arguments)};a.runPostSets=function(){return a.asm.runPostSets.apply(null,arguments)},a.setTempRet0=function(){return a.asm.setTempRet0.apply(null,arguments)},a._ecdsa_read_pubkey=function(){return a.asm._ecdsa_read_pubkey.apply(null,arguments)},a.establishStackSpace=function(){return a.asm.establishStackSpace.apply(null,arguments)},a.stackSave=function(){return a.asm.stackSave.apply(null,arguments)};var cb=a._memset=function(){return a.asm._memset.apply(null,arguments)};a._hdnode_fingerprint=function(){return a.asm._hdnode_fingerprint.apply(null,arguments)};var T=a._malloc=function(){return a.asm._malloc.apply(null,arguments)};a._emscripten_get_global_libc=function(){return a.asm._emscripten_get_global_libc.apply(null,arguments)};var eb=a._memcpy=function(){return a.asm._memcpy.apply(null,arguments)};a._hdnode_public_ckd=function(){return a.asm._hdnode_public_ckd.apply(null,arguments)},a.stackAlloc=function(){return a.asm.stackAlloc.apply(null,arguments)},a.setThrew=function(){return a.asm.setThrew.apply(null,arguments)};var db=a._sbrk=function(){return a.asm._sbrk.apply(null,arguments)};a._hdnode_deserialize=function(){return a.asm._hdnode_deserialize.apply(null,arguments)},a.stackRestore=function(){return a.asm.stackRestore.apply(null,arguments)},a._hdnode_public_ckd_address_optimized=function(){return a.asm._hdnode_public_ckd_address_optimized.apply(null,arguments)};var ra=a._llvm_bswap_i32=function(){return a.asm._llvm_bswap_i32.apply(null,arguments)};if(f.f=a.stackAlloc,f.g=a.stackSave,f.c=a.stackRestore,f.J=a.establishStackSpace,f.s=a.setTempRet0,f.A=a.getTempRet0,a.asm=v,E)if("function"==typeof a.locateFile?E=a.locateFile(E):a.memoryInitializerPrefixURL&&(E=a.memoryInitializerPrefixURL+E),P||G)G=a.readBinary(E),t.set(G,f.h);else{var Ua=function(){a.readAsync(E,Ta,function(){throw"could not load memory initializer "+E})};ja();var Ta=function(e){e.byteLength&&(e=new Uint8Array(e)),t.set(e,f.h),a.memoryInitializerRequest&&delete a.memoryInitializerRequest.response,ka()};a.memoryInitializerRequest?(G=function(){var e=a.memoryInitializerRequest;200!==e.status&&0!==e.status?(console.warn("a problem seems to have happened with Module.memoryInitializerRequest, status: "+e.status+", retrying "+E),Ua()):Ta(e.response)},a.memoryInitializerRequest.response?setTimeout(G,0):a.memoryInitializerRequest.addEventListener("load",G)):Ua()}O.prototype=Error(),O.prototype.constructor=O;var bb,Ma=null,V=function e(){a.calledRun||na(),a.calledRun||(V=e)};a.callMain=a.G=function(e){function n(){for(var e=0;3>e;e++)t.push(0)}e=e||[],X||(X=!0,N(ca));var r=e.length+1,t=[S(ia(a.thisProgram),"i8",0)];n();for(var i=0;i<r-1;i+=1)t.push(S(ia(e[i]),"i8",0)),n();t.push(0),t=S(t,"i32",0);try{Na(a._main(r,t,0),!0)}catch(n){n instanceof O||("SimulateInfiniteLoop"==n?a.noExitRuntime=!0:((e=n)&&"object"==typeof n&&n.stack&&(e=[n,n.stack]),a.e("exception thrown: "+e),a.quit(1,n)))}},a.run=a.run=na,a.exit=a.exit=Na;var Pa=[];if(a.abort=a.abort=D,a.preInit)for("function"==typeof a.preInit&&(a.preInit=[a.preInit]);0<a.preInit.length;)a.preInit.pop()();var La=!0;a.noInitialRun&&(La=!1),a.noExitRuntime=!0,na();var Va=da();return a.onRuntimeInitialized=function(){function e(e){var n=new Uint8Array(33);n.set(e.public_key,0),i.set(n,b),(n=new Uint8Array(32)).set(e.chain_code,0),i.set(n,y),p(0,b,d)}function n(e,n,a){if(U(e,_,200),0!==s(_,a,0,h,0))throw Error("Wrong XPUB type!!");if(g=f(h),1!==c(h,n))throw Error("Strange return type");if(0===l(h,g,a,_,200))throw Error("Strange return type");return Aa(_)}function r(e,n,a){return u(d,y,e,n,v,60,a),m(v)}function t(n,a,t,i,o){var u=[];for(e(n),n=a;n<=t;n++)u.push(r(n,i,o));return u}var i=a.HEAPU8,o=a._malloc,u=a._hdnode_public_ckd_address_optimized,s=a._hdnode_deserialize,f=a._hdnode_fingerprint,c=a._hdnode_public_ckd,l=a._hdnode_serialize_public,p=a._ecdsa_read_pubkey,m=a.Pointer_stringify,d=o(72),b=o(33),y=o(32),h=o(109),v=o(60),_=o(200),g=0;Va.resolve({processMessage:function(e){var a=(e=e.data).type;switch(a){case"deriveAddressRange":a=t(e.node,e.firstIndex,e.lastIndex,e.version,e.addressFormat),self.postMessage({addresses:a,firstIndex:e.firstIndex,lastIndex:e.lastIndex,i:e.i});break;case"deriveNode":a=n(e.xpub,e.index,e.version),self.postMessage({xpub:a,i:e.i});break;default:throw Error("Unknown message type: "+a)}},loadNode:e,deriveAddress:r,deriveNode:n,deriveAddressRange:t})},Va.r}if("undefined"==typeof importScripts&&"undefined"!=typeof WorkerGlobalScope&&this instanceof WorkerGlobalScope&&(this.importScripts=function(){throw Error("importScripts is a stub")}),"function"==typeof importScripts){var ta=da();self.onmessage=function(e){var n=e.data;"init"===n.type?sa(n.binary).then(function(e){ta.resolve(e)}):ta.r.then(function(n){n.processMessage(e)})}}var Wa=function(e){return function(){if(null===ua)throw Error("fastxpub not yet inited.");return ua[e].apply(void 0,arguments)}},ua=null;module.exports={deriveNode:Wa("deriveNode"),loadNode:Wa("loadNode"),deriveAddress:Wa("deriveAddress"),deriveAddressRange:Wa("deriveAddressRange"),init:function(e){return sa(e).then(function(e){ua=e})}}}).call(this,__webpack_require__(2))},function(e,n){var a,r,t=e.exports={};function i(){throw new Error("setTimeout has not been defined")}function o(){throw new Error("clearTimeout has not been defined")}function u(e){if(a===setTimeout)return setTimeout(e,0);if((a===i||!a)&&setTimeout)return a=setTimeout,setTimeout(e,0);try{return a(e,0)}catch(n){try{return a.call(null,e,0)}catch(n){return a.call(this,e,0)}}}!function(){try{a="function"==typeof setTimeout?setTimeout:i}catch(e){a=i}try{r="function"==typeof clearTimeout?clearTimeout:o}catch(e){r=o}}();var s,f=[],c=!1,l=-1;function p(){c&&s&&(c=!1,s.length?f=s.concat(f):l=-1,f.length&&m())}function m(){if(!c){var e=u(p);c=!0;for(var n=f.length;n;){for(s=f,f=[];++l<n;)s&&s[l].run();l=-1,n=f.length}s=null,c=!1,function(e){if(r===clearTimeout)return clearTimeout(e);if((r===o||!r)&&clearTimeout)return r=clearTimeout,clearTimeout(e);try{r(e)}catch(n){try{return r.call(null,e)}catch(n){return r.call(this,e)}}}(e)}}function d(e,n){this.fun=e,this.array=n}function b(){}t.nextTick=function(e){var n=new Array(arguments.length-1);if(arguments.length>1)for(var a=1;a<arguments.length;a++)n[a-1]=arguments[a];f.push(new d(e,n)),1!==f.length||c||u(m)},d.prototype.run=function(){this.fun.apply(null,this.array)},t.title="browser",t.browser=!0,t.env={},t.argv=[],t.version="",t.versions={},t.on=b,t.addListener=b,t.once=b,t.off=b,t.removeListener=b,t.removeAllListeners=b,t.emit=b,t.prependListener=b,t.prependOnceListener=b,t.listeners=function(e){return[]},t.binding=function(e){throw new Error("process.binding is not supported")},t.cwd=function(){return"/"},t.chdir=function(e){throw new Error("process.chdir is not supported")},t.umask=function(){return 0}}]);
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "./";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(process) {"undefined"===typeof importScripts&&"undefined"!==typeof WorkerGlobalScope&&this instanceof WorkerGlobalScope&&(this.importScripts=function(){throw Error("importScripts is a stub");});function da(){function u(){}function H(){}return{r:new Promise(function(n,Y){H=n;u=Y}),resolve:H,reject:u}}
+function sa(u){function H(b){eval.call(null,b)}function n(b,a){b||D("Assertion failed: "+a)}function Y(b){var d=a["_"+b];if(!d)try{d=eval("_"+b)}catch(c){}n(d,"Cannot call unknown function "+b+" (perhaps LLVM optimizations or closure removed it?)");return d}function va(b,a,c){c=c||"i8";"*"===c.charAt(c.length-1)&&(c="i32");switch(c){case "i1":q[b>>0]=a;break;case "i8":q[b>>0]=a;break;case "i16":R[b>>1]=a;break;case "i32":m[b>>2]=a;break;case "i64":tempI64=[a>>>0,(tempDouble=a,1<=+Xa(tempDouble)?0<
+tempDouble?(Ya(+Za(tempDouble/4294967296),4294967295)|0)>>>0:~~+$a((tempDouble-+(~~tempDouble>>>0))/4294967296)>>>0:0)];m[b>>2]=tempI64[0];m[b+4>>2]=tempI64[1];break;case "float":Z[b>>2]=a;break;case "double":aa[b>>3]=a;break;default:D("invalid type for setValue: "+c)}}function wa(b,a){a=a||"i8";"*"===a.charAt(a.length-1)&&(a="i32");switch(a){case "i1":return q[b>>0];case "i8":return q[b>>0];case "i16":return R[b>>1];case "i32":return m[b>>2];case "i64":return m[b>>2];case "float":return Z[b>>2];
+case "double":return aa[b>>3];default:D("invalid type for setValue: "+a)}return null}function S(b,a,c,e){var r,h;"number"===typeof b?(r=!0,h=b):(r=!1,h=b.length);var g="string"===typeof a?a:null,l;4==c?l=e:l=["function"===typeof T?T:f.n,f.f,f.n,f.p][void 0===c?2:c](Math.max(h,g?1:a.length));if(r){e=l;n(0==(l&3));for(b=l+(h&-4);e<b;e+=4)m[e>>2]=0;for(b=l+h;e<b;)q[e++>>0]=0;return l}if("i8"===g)return b.subarray||b.slice?t.set(b,l):t.set(new Uint8Array(b),l),l;e=0;for(var F,xa;e<h;)r=b[e],"function"===
+typeof r&&(r=f.P(r)),c=g||a[e],0===c?e++:("i64"==c&&(c="i32"),va(l+e,r,c),xa!==c&&(F=f.q(c),xa=c),e+=F);return l}function J(b,d){if(0===d||!b)return"";for(var c=0,e,f=0;;){e=t[b+f>>0];c|=e;if(0==e&&!d)break;f++;if(d&&f==d)break}d||(d=f);e="";if(128>c){for(;0<d;)c=String.fromCharCode.apply(String,t.subarray(b,b+Math.min(d,1024))),e=e?e+c:c,b+=1024,d-=1024;return e}return a.UTF8ToString(b)}function ya(b,a){for(var c=a;b[c];)++c;if(16<c-a&&b.subarray&&za)return za.decode(b.subarray(a,c));for(var e,f,
+h,g,l,F,c="";;){e=b[a++];if(!e)return c;e&128?(f=b[a++]&63,192==(e&224)?c+=String.fromCharCode((e&31)<<6|f):(h=b[a++]&63,224==(e&240)?e=(e&15)<<12|f<<6|h:(g=b[a++]&63,240==(e&248)?e=(e&7)<<18|f<<12|h<<6|g:(l=b[a++]&63,248==(e&252)?e=(e&3)<<24|f<<18|h<<12|g<<6|l:(F=b[a++]&63,e=(e&1)<<30|f<<24|h<<18|g<<12|l<<6|F))),65536>e?c+=String.fromCharCode(e):(e-=65536,c+=String.fromCharCode(55296|e>>10,56320|e&1023)))):c+=String.fromCharCode(e)}}function Aa(b){return ya(t,b)}function ea(b,a,c,e){if(!(0<e))return 0;
+var f=c;e=c+e-1;for(var h=0;h<b.length;++h){var g=b.charCodeAt(h);55296<=g&&57343>=g&&(g=65536+((g&1023)<<10)|b.charCodeAt(++h)&1023);if(127>=g){if(c>=e)break;a[c++]=g}else{if(2047>=g){if(c+1>=e)break;a[c++]=192|g>>6}else{if(65535>=g){if(c+2>=e)break;a[c++]=224|g>>12}else{if(2097151>=g){if(c+3>=e)break;a[c++]=240|g>>18}else{if(67108863>=g){if(c+4>=e)break;a[c++]=248|g>>24}else{if(c+5>=e)break;a[c++]=252|g>>30;a[c++]=128|g>>24&63}a[c++]=128|g>>18&63}a[c++]=128|g>>12&63}a[c++]=128|g>>6&63}a[c++]=128|
+g&63}}a[c]=0;return c-f}function U(b,a,c){return ea(b,t,a,c)}function ba(b){for(var a=0,c=0;c<b.length;++c){var e=b.charCodeAt(c);55296<=e&&57343>=e&&(e=65536+((e&1023)<<10)|b.charCodeAt(++c)&1023);127>=e?++a:a=2047>=e?a+2:65535>=e?a+3:2097151>=e?a+4:67108863>=e?a+5:a+6}return a}function ab(b){return b.replace(/__Z[\w\d_]+/g,function(b){var c;a:{var e=a.___cxa_demangle||a.__cxa_demangle;if(e)try{var r=b.substr(1),h=ba(r)+1,g=T(h);U(r,g,h);var l=T(4),F=e(g,0,0,l);if(0===wa(l,"i32")&&F){c=J(F);break a}}catch(n){}finally{g&&
+fa(g),l&&fa(l),F&&fa(F)}else f.b("warning: build with  -s DEMANGLE_SUPPORT=1  to link in libcxxabi demangling");c=b}return b===c?b:b+" ["+c+"]"})}function ga(){var b;a:{b=Error();if(!b.stack){try{throw Error(0);}catch(d){b=d}if(!b.stack){b="(no stack trace available)";break a}}b=b.stack.toString()}a.extraStackTrace&&(b+="\n"+a.extraStackTrace());return ab(b)}function Ba(){a.HEAP8=q=new Int8Array(k);a.HEAP16=R=new Int16Array(k);a.HEAP32=m=new Int32Array(k);a.HEAPU8=t=new Uint8Array(k);a.HEAPU16=Ca=
+new Uint16Array(k);a.HEAPU32=Da=new Uint32Array(k);a.HEAPF32=Z=new Float32Array(k);a.HEAPF64=aa=new Float64Array(k)}function ha(){D("Cannot enlarge memory arrays. Either (1) compile with  -s TOTAL_MEMORY=X  with X higher than the current value "+I+", (2) compile with  -s ALLOW_MEMORY_GROWTH=1  which allows increasing the size at runtime, or (3) if you want malloc to return NULL (0) instead of this abort, compile with  -s ABORTING_MALLOC=0 ")}function N(b){for(;0<b.length;){var d=b.shift();if("function"==
+typeof d)d();else{var c=d.L;"number"===typeof c?void 0===d.k?a.dynCall_v(c):a.dynCall_vi(c,d.k):c(void 0===d.k?null:d.k)}}}function Ea(b){Fa.unshift(b)}function Ga(b){Ha.unshift(b)}function ia(b,a,c){c=Array(0<c?c:ba(b)+1);b=ea(b,c,0,c.length);a&&(c.length=b);return c}function Ia(b,a){q.set(b,a)}function Ja(b,a,c){for(var e=0;e<b.length;++e)q[a++>>0]=b.charCodeAt(e);c||(q[a>>0]=0)}function ja(){K++;a.monitorRunDependencies&&a.monitorRunDependencies(K)}function ka(){K--;a.monitorRunDependencies&&a.monitorRunDependencies(K);
+if(0==K&&(null!==la&&(clearInterval(la),la=null),V)){var b=V;V=null;b()}}function ma(){var b=ma;b.a||(b.a=[]);b.a.push(f.g());return b.a.length-1}function O(b){this.name="ExitStatus";this.message="Program terminated with exit("+b+")";this.status=b}function na(b){function d(){if(!a.calledRun&&(a.calledRun=!0,!W)){X||(X=!0,N(ca));N(Ka);if(a.onRuntimeInitialized)a.onRuntimeInitialized();a._main&&La&&a.callMain(b);if(a.postRun)for("function"==typeof a.postRun&&(a.postRun=[a.postRun]);a.postRun.length;)Ga(a.postRun.shift());
+N(Ha)}}b=b||a.arguments;null===Ma&&(Ma=Date.now());if(!(0<K)){if(a.preRun)for("function"==typeof a.preRun&&(a.preRun=[a.preRun]);a.preRun.length;)Ea(a.preRun.shift());N(Fa);0<K||a.calledRun||(a.setStatus?(a.setStatus("Running..."),setTimeout(function(){setTimeout(function(){a.setStatus("")},1);d()},1)):d())}}function Na(b,d){if(!d||!a.noExitRuntime){if(!a.noExitRuntime&&(W=!0,z=bb,N(Oa),a.onExit))a.onExit(b);P&&process.exit(b);a.quit(b,new O(b))}}function D(b){void 0!==b?(a.print(b),a.e(b),b=JSON.stringify(b)):
+b="";W=!0;var d="abort("+b+") at "+ga()+"\nIf this abort() is unexpected, build with -s ASSERTIONS=1 which can give more information.";Pa&&Pa.forEach(function(a){d=a(d,b)});throw d;}var a={};a.wasmBinary=new Uint8Array(u);a||(a=eval("(function() { try { return Module || {} } catch(e) { return {} } })()"));var v={},p;for(p in a)a.hasOwnProperty(p)&&(v[p]=a[p]);var y=!1,L=!1,P=!1,G=!1;if(a.ENVIRONMENT)if("WEB"===a.ENVIRONMENT)y=!0;else if("WORKER"===a.ENVIRONMENT)L=!0;else if("NODE"===a.ENVIRONMENT)P=
+!0;else if("SHELL"===a.ENVIRONMENT)G=!0;else throw Error("The provided Module['ENVIRONMENT'] value is not valid. It must be one of: WEB|WORKER|NODE|SHELL.");else y="object"===typeof window,L="function"===typeof importScripts,P="object"===typeof process&&"function"==="function"&&!y&&!L,G=!y&&!P&&!L;if(P){a.print||(a.print=console.log);a.printErr||(a.printErr=console.warn);var oa,pa;a.read=function(b,a){oa||(oa=__webpack_require__(0));pa||(pa=__webpack_require__(0));b=pa.normalize(b);var c=oa.readFileSync(b);return a?
+c:c.toString()};a.readBinary=function(b){b=a.read(b,!0);b.buffer||(b=new Uint8Array(b));n(b.buffer);return b};a.load=function(b){H(read(b))};a.thisProgram||(a.thisProgram=1<process.argv.length?process.argv[1].replace(/\\/g,"/"):"unknown-program");a.arguments=process.argv.slice(2); true&&(module.exports=a);process.on("uncaughtException",function(b){if(!(b instanceof O))throw b;});a.inspect=function(){return"[Emscripten Module object]"}}else if(G)a.print||(a.print=print),"undefined"!=
+typeof printErr&&(a.printErr=printErr),a.read="undefined"!=typeof read?read:function(){throw"no read() available";},a.readBinary=function(b){if("function"===typeof readbuffer)return new Uint8Array(readbuffer(b));b=read(b,"binary");n("object"===typeof b);return b},"undefined"!=typeof scriptArgs?a.arguments=scriptArgs:"undefined"!=typeof arguments&&(a.arguments=arguments),"function"===typeof quit&&(a.quit=function(b){quit(b)}),eval("if (typeof gc === 'function' && gc.toString().indexOf('[native code]') > 0) var gc = undefined");
+else if(y||L)a.read=function(b){var a=new XMLHttpRequest;a.open("GET",b,!1);a.send(null);return a.responseText},L&&(a.readBinary=function(a){var d=new XMLHttpRequest;d.open("GET",a,!1);d.responseType="arraybuffer";d.send(null);return new Uint8Array(d.response)}),a.readAsync=function(a,d,c){var e=new XMLHttpRequest;e.open("GET",a,!0);e.responseType="arraybuffer";e.onload=function(){200==e.status||0==e.status&&e.response?d(e.response):c()};e.onerror=c;e.send(null)},"undefined"!=typeof arguments&&(a.arguments=
+arguments),"undefined"!==typeof console?(a.print||(a.print=function(a){console.log(a)}),a.printErr||(a.printErr=function(a){console.warn(a)})):a.print||(a.print=function(){}),L&&(a.load=importScripts),"undefined"===typeof a.setWindowTitle&&(a.setWindowTitle=function(a){document.title=a});else throw"Unknown runtime environment. Where are we?";!a.load&&a.read&&(a.load=function(b){H(a.read(b))});a.print||(a.print=function(){});a.printErr||(a.printErr=a.print);a.arguments||(a.arguments=[]);a.thisProgram||
+(a.thisProgram="./this.program");a.quit||(a.quit=function(a,d){throw d;});a.print=a.print;a.e=a.printErr;a.preRun=[];a.postRun=[];for(p in v)v.hasOwnProperty(p)&&(a[p]=v[p]);var v=void 0,f={s:function(a){return tempRet0=a},A:function(){return tempRet0},g:function(){return z},c:function(a){z=a},q:function(a){switch(a){case "i1":case "i8":return 1;case "i16":return 2;case "i32":return 4;case "i64":return 8;case "float":return 4;case "double":return 8;default:return"*"===a[a.length-1]?f.j:"i"===a[0]?
+(a=parseInt(a.substr(1)),n(0===a%8),a/8):0}},w:function(a){return Math.max(f.q(a),f.j)},C:16,S:function(a,d){"double"===d||"i64"===d?a&7&&(n(4===(a&7)),a+=4):n(0===(a&3));return a},M:function(a,d,c){return c||"i64"!=a&&"double"!=a?a?Math.min(d||(a?f.w(a):0),f.j):Math.min(d,8):8},l:function(b,d,c){return c&&c.length?a["dynCall_"+b].apply(null,[d].concat(c)):a["dynCall_"+b].call(null,d)},d:[],t:function(a){for(var d=0;d<f.d.length;d++)if(!f.d[d])return f.d[d]=a,2*(1+d);throw"Finished up all reserved function pointers. Use a higher value for RESERVED_FUNCTION_POINTERS.";
+},B:function(a){f.d[(a-2)/2]=null},b:function(b){f.b.a||(f.b.a={});f.b.a[b]||(f.b.a[b]=1,a.e(b))},m:{},O:function(a,d){n(d);f.m[d]||(f.m[d]={});var c=f.m[d];c[a]||(c[a]=1===d.length?function(){return f.l(d,a)}:2===d.length?function(c){return f.l(d,a,[c])}:function(){return f.l(d,a,Array.prototype.slice.call(arguments))});return c[a]},N:function(){throw"You must build with -s RETAIN_COMPILER_SETTINGS=1 for Runtime.getCompilerSetting or emscripten_get_compiler_setting to work";},f:function(a){var d=
+z;z=z+a|0;z=z+15&-16;return d},n:function(a){var d=A;A=A+a|0;A=A+15&-16;return d},p:function(a){var d=m[M>>2];a=(d+a+15|0)&-16;m[M>>2]=a;if(a=a>=I)ha(),a=!0;return a?(m[M>>2]=d,0):d},o:function(a,d){return Math.ceil(a/(d?d:16))*(d?d:16)},R:function(a,d,c){return c?+(a>>>0)+4294967296*+(d>>>0):+(a>>>0)+4294967296*+(d|0)},h:1024,j:4,D:0};a.Runtime=f;f.addFunction=f.t;f.removeFunction=f.B;var W=0,Qa,Ra;(function(){function a(b){b=b.toString().match(r).slice(1);return{arguments:b[0],body:b[1],returnValue:b[2]}}
+function d(){if(!h){h={};for(var d in c)c.hasOwnProperty(d)&&(h[d]=a(c[d]))}}var c={stackSave:function(){f.g()},stackRestore:function(){f.c()},arrayToC:function(a){var b=f.f(a.length);Ia(a,b);return b},stringToC:function(a){var b=0;if(null!==a&&void 0!==a&&0!==a){var c=(a.length<<2)+1,b=f.f(c);U(a,b,c)}return b}},e={string:c.stringToC,array:c.arrayToC};Ra=function(a,b,c,d,h){a=Y(a);var r=[],n=0;if(d)for(var x=0;x<d.length;x++){var p=e[c[x]];p?(0===n&&(n=f.g()),r[x]=p(d[x])):r[x]=d[x]}c=a.apply(null,
+r);"string"===b&&(c=J(c));if(0!==n){if(h&&h.async){EmterpreterAsync.F.push(function(){f.c(n)});return}f.c(n)}return c};var r=/^function\s*[a-zA-Z$_0-9]*\s*\(([^)]*)\)\s*{\s*([^*]*?)[\s;]*(?:return\s*(.*?)[;\s]*)?}$/,h=null;Qa=function(c,e,f){f=f||[];var r=Y(c);c=f.every(function(a){return"number"===a});var n="string"!==e;if(n&&c)return r;var p=f.map(function(a,b){return"$"+b});e="(function("+p.join(",")+") {";var m=f.length;if(!c){d();e+="var stack = "+h.stackSave.body+";";for(var x=0;x<m;x++){var t=
+p[x],k=f[x];"number"!==k&&(k=h[k+"ToC"],e+="var "+k.arguments+" = "+t+";",e+=k.body+";",e+=t+"=("+k.returnValue+");")}}f=a(function(){return r}).returnValue;e+="var ret = "+f+"("+p.join(",")+");";n||(f=a(function(){return J}).returnValue,e+="ret = "+f+"(ret);");c||(d(),e+=h.stackRestore.body.replace("()","(stack)")+";");return eval(e+"return ret})")}})();a.ccall=Ra;a.cwrap=Qa;a.setValue=va;a.getValue=wa;a.ALLOC_NORMAL=0;a.ALLOC_STACK=1;a.ALLOC_STATIC=2;a.ALLOC_DYNAMIC=3;a.ALLOC_NONE=4;a.allocate=
+S;a.getMemory=function(a){return qa?X?T(a):f.p(a):f.n(a)};a.Pointer_stringify=J;a.AsciiToString=function(a){for(var d="";;){var c=q[a++>>0];if(!c)return d;d+=String.fromCharCode(c)}};a.stringToAscii=function(a,d){return Ja(a,d,!1)};var za="undefined"!==typeof TextDecoder?new TextDecoder("utf8"):void 0;a.UTF8ArrayToString=ya;a.UTF8ToString=Aa;a.stringToUTF8Array=ea;a.stringToUTF8=U;a.lengthBytesUTF8=ba;"undefined"!==typeof TextDecoder&&new TextDecoder("utf-16le");a.stackTrace=ga;var k,q,t,R,Ca,m,Da,
+Z,aa,A,qa,z,M,v=A=y=z=p=y=M=0;qa=!1;p=a.TOTAL_STACK||5242880;var I=a.TOTAL_MEMORY||16777216;I<p&&a.e("TOTAL_MEMORY should be larger than TOTAL_STACK, was "+I+"! (TOTAL_STACK="+p+")");a.buffer?k=a.buffer:"object"===typeof WebAssembly&&"function"===typeof WebAssembly.Memory?(a.wasmMemory=new WebAssembly.Memory({initial:I/65536,maximum:I/65536}),k=a.wasmMemory.buffer):k=new ArrayBuffer(I);Ba();m[0]=1668509029;R[1]=25459;if(115!==t[2]||99!==t[3])throw"Runtime error: expected the system to be little-endian!";
+a.HEAP=void 0;a.buffer=k;a.HEAP8=q;a.HEAP16=R;a.HEAP32=m;a.HEAPU8=t;a.HEAPU16=Ca;a.HEAPU32=Da;a.HEAPF32=Z;a.HEAPF64=aa;var Fa=[],ca=[],Ka=[],Oa=[],Ha=[],X=!1;a.addOnPreRun=Ea;a.addOnInit=function(a){ca.unshift(a)};a.addOnPreMain=function(a){Ka.unshift(a)};a.addOnExit=function(a){Oa.unshift(a)};a.addOnPostRun=Ga;a.intArrayFromString=ia;a.intArrayToString=function(a){for(var d=[],c=0;c<a.length;c++){var e=a[c];255<e&&(e&=255);d.push(String.fromCharCode(e))}return d.join("")};a.writeStringToMemory=function(a,
+d,c){f.b("writeStringToMemory is deprecated and should not be called! Use stringToUTF8() instead!");var e,r;c&&(r=d+ba(a),e=q[r]);U(a,d,Infinity);c&&(q[r]=e)};a.writeArrayToMemory=Ia;a.writeAsciiToMemory=Ja;Math.imul&&-5===Math.imul(4294967295,5)||(Math.imul=function(a,d){var c=a&65535,e=d&65535;return c*e+((a>>>16)*e+c*(d>>>16)<<16)|0});Math.Q=Math.imul;if(!Math.fround){var Sa=new Float32Array(1);Math.fround=function(a){Sa[0]=a;return Sa[0]}}Math.K=Math.fround;Math.clz32||(Math.clz32=function(a){a=
+a>>>0;for(var d=0;32>d;d++)if(a&1<<31-d)return d;return 32});Math.H=Math.clz32;Math.trunc||(Math.trunc=function(a){return 0>a?Math.ceil(a):Math.floor(a)});Math.trunc=Math.trunc;var Xa=Math.abs,$a=Math.ceil,Za=Math.floor,Ya=Math.min,K=0,la=null,V=null;a.addRunDependency=ja;a.removeRunDependency=ka;a.preloadedImages={};a.preloadedAudios={};var E=null;(function(b){function d(a){var c=b.usingWasm?65536:16777216;0<a%c&&(a+=c-a%c);var c=b.buffer,d=c.byteLength;if(b.usingWasm)try{return-1!==b.wasmMemory.grow((a-
+d)/65536)?b.buffer=b.wasmMemory.buffer:null}catch(e){return null}else return x.__growWasmMemory((a-d)/65536),b.buffer!==c?b.buffer:null}function c(a,b){var c=q;if(0>a.indexOf("."))c=(c||{})[a];else var d=a.split("."),c=(c||{})[d[0]],c=(c||{})[d[1]];b&&(c=(c||{})[b]);void 0===c&&D("bad lookupImport to ("+a+")."+b);return c}function e(c){var d=b.buffer;c.byteLength<d.byteLength&&b.printErr("the new buffer in mergeMemory is smaller than the previous one. in native wasm, we should grow memory here");
+var d=new Int8Array(d),e=new Int8Array(c);E||d.set(e.subarray(b.STATIC_BASE,b.STATIC_BASE+b.STATIC_BUMP),b.STATIC_BASE);e.set(d);a.buffer=k=c;Ba()}function f(){var a;if(b.wasmBinary)a=b.wasmBinary,a=new Uint8Array(a);else if(b.readBinary)a=b.readBinary(m);else throw"on the web, we need the wasm binary to be preloaded and set on Module['wasmBinary']. emcc.py will do that for you when generating HTML (but not JS)";return a}function h(){return b.wasmBinary||"function"!==typeof fetch?new Promise(function(a){a(f())}):
+fetch(m,{I:"same-origin"}).then(function(a){if(!a.ok)throw"failed to load wasm binary file at '"+m+"'";return a.arrayBuffer()})}function g(a,c,d){if("function"!==typeof b.asm||b.asm===y)b.asmPreload?b.asm=b.asmPreload:eval(b.read(v));return"function"!==typeof b.asm?(b.printErr("asm evalling did not set the module properly"),!1):b.asm(a,c,d)}function l(a,c){function d(a){x=a.exports;x.memory&&e(x.memory);b.asm=x;b.usingWasm=!0;ka()}if("object"!==typeof WebAssembly)return b.printErr("no native wasm support detected"),
+!1;if(!(b.wasmMemory instanceof WebAssembly.Memory))return b.printErr("no native wasm Memory in use"),!1;c.memory=b.wasmMemory;q.global={NaN:NaN,Infinity:Infinity};q["global.Math"]=a.Math;q.env=c;ja();if(b.instantiateWasm)try{return b.instantiateWasm(q,d)}catch(f){return b.printErr("Module.instantiateWasm callback failed with error: "+f),!1}h().then(function(a){return WebAssembly.instantiate(a,q)}).then(function(a){d(a.instance)}).catch(function(a){b.printErr("failed to asynchronously prepare wasm: "+
+a);b.quit(1,a)});return{}}var p=b.wasmJSMethod||"native-wasm";b.wasmJSMethod=p;var t=b.wasmTextFile||"fastxpub.wast",m=b.wasmBinaryFile||"fastxpub.wasm",v=b.asmjsCodeFile||"fastxpub.temp.asm.js";"function"===typeof b.locateFile&&(t=b.locateFile(t),m=b.locateFile(m),v=b.locateFile(v));var q={global:null,env:null,asm2wasm:{"f64-rem":function(a,b){return a%b},"f64-to-int":function(a){return a|0},"i32s-div":function(a,b){return(a|0)/(b|0)|0},"i32u-div":function(a,b){return(a>>>0)/(b>>>0)>>>0},"i32s-rem":function(a,
+b){return(a|0)%(b|0)|0},"i32u-rem":function(a,b){return(a>>>0)%(b>>>0)>>>0},"debugger":function(){debugger}},parent:b},x=null;b.asmPreload=b.asm;var u=b.reallocBuffer;b.reallocBuffer=function(a){return"asmjs"===z?u(a):d(a)};var z="";b.asm=function(a,d,h){if(!d.table){var m=b.wasmTableSize;void 0===m&&(m=1024);var Q=b.wasmMaxTableSize;d.table="object"===typeof WebAssembly&&"function"===typeof WebAssembly.Table?void 0!==Q?new WebAssembly.Table({initial:m,maximum:Q,element:"anyfunc"}):new WebAssembly.Table({initial:m,
+element:"anyfunc"}):Array(m);b.wasmTable=d.table}d.memoryBase||(d.memoryBase=b.STATIC_BASE);d.tableBase||(d.tableBase=0);for(var w,m=p.split(","),Q=0;Q<m.length;Q++)if(z=w=m[Q],"native-wasm"===w){if(w=l(a,d))break}else if("asmjs"===w){if(w=g(a,d,h))break}else if("interpret-asm2wasm"===w||"interpret-s-expr"===w||"interpret-binary"===w){var k=a,C=d,u=h;if("function"!==typeof WasmJS)b.printErr("WasmJS not detected - polyfill not bundled?"),w=!1;else{var B=WasmJS({});B.outside=b;B.info=q;B.lookupImport=
+c;n(u===b.buffer);q.global=k;q.env=C;n(u===b.buffer);C.memory=u;n(C.memory instanceof ArrayBuffer);B.providedTotalMemory=b.buffer.byteLength;k=void 0;k="interpret-binary"===w?f():b.read("interpret-asm2wasm"==w?v:t);C=void 0;if("interpret-asm2wasm"==w)C=B._malloc(k.length+1),B.writeAsciiToMemory(k,C),B._load_asm2wasm(C);else if("interpret-s-expr"===w)C=B._malloc(k.length+1),B.writeAsciiToMemory(k,C),B._load_s_expr2wasm(C);else if("interpret-binary"===w)C=B._malloc(k.length),B.HEAPU8.set(k,C),B._load_binary2wasm(C,
+k.length);else throw"what? "+w;B._free(C);B._instantiate(C);b.newBuffer&&(e(b.newBuffer),b.newBuffer=null);w=x=B.asmExports}if(w)break}else throw"bad method: "+w;if(!w)throw"no binaryen method succeeded. consider enabling more options, like interpreting, if you want that: https://github.com/kripken/emscripten/wiki/WebAssembly#binaryen-methods";return w};var y=b.asm})(a);v=f.h;A=v+77952;ca.push();E=0<=a.wasmJSMethod.indexOf("asmjs")||0<=a.wasmJSMethod.indexOf("interpret-asm2wasm")?"fastxpub.js.mem":
+null;a.STATIC_BASE=v;a.STATIC_BUMP=77952;v=A;A+=16;a._memset=cb;a._llvm_bswap_i32=ra;a._sbrk=db;a._memcpy=eb;M=S(1,"i32",2);y=z=f.o(A);p=y+p;y=f.o(p);m[M>>2]=y;qa=!0;a.wasmTableSize=0;a.wasmMaxTableSize=0;a.u={Math:Math,Int8Array:Int8Array,Int16Array:Int16Array,Int32Array:Int32Array,Uint8Array:Uint8Array,Uint16Array:Uint16Array,Uint32Array:Uint32Array,Float32Array:Float32Array,Float64Array:Float64Array,NaN:NaN,Infinity:Infinity};a.v={abort:D,assert:n,enlargeMemory:function(){ha()},getTotalMemory:function(){return I},
+abortOnCannotGrowMemory:ha,_ed25519_publickey_keccak:function(){a.printErr("missing function: ed25519_publickey_keccak");D(-1)},_abort:function(){a.abort()},_curve25519_scalarmult_basepoint:function(){a.printErr("missing function: curve25519_scalarmult_basepoint");D(-1)},___setErrNo:function(b){a.___errno_location&&(m[a.___errno_location()>>2]=b);return b},_llvm_stacksave:ma,_ed25519_publickey_sha3:function(){a.printErr("missing function: ed25519_publickey_sha3");D(-1)},_emscripten_memcpy_big:function(a,
+d,c){t.set(t.subarray(d,d+c),a);return a},_llvm_bswap_i64:function(a,d){var c=ra(d)>>>0,e=ra(a)>>>0;return(f.s(e),c)|0},_llvm_stackrestore:function(a){var d=ma,c=d.a[a];d.a.splice(a,1);f.c(c)},___assert_fail:function(a,d,c,e){W=!0;throw"Assertion failed: "+J(a)+", at: "+[d?J(d):"unknown filename",c,e?J(e):"unknown function"]+" at "+ga();},_ed25519_publickey:function(){a.printErr("missing function: ed25519_publickey");D(-1)},DYNAMICTOP_PTR:M,tempDoublePtr:v,ABORT:W,STACKTOP:z,STACK_MAX:p};v=a.asm(a.u,
+a.v,k);a.asm=v;a._hdnode_serialize_public=function(){return a.asm._hdnode_serialize_public.apply(null,arguments)};a.getTempRet0=function(){return a.asm.getTempRet0.apply(null,arguments)};var fa=a._free=function(){return a.asm._free.apply(null,arguments)};a.runPostSets=function(){return a.asm.runPostSets.apply(null,arguments)};a.setTempRet0=function(){return a.asm.setTempRet0.apply(null,arguments)};a._ecdsa_read_pubkey=function(){return a.asm._ecdsa_read_pubkey.apply(null,arguments)};a.establishStackSpace=
+function(){return a.asm.establishStackSpace.apply(null,arguments)};a.stackSave=function(){return a.asm.stackSave.apply(null,arguments)};var cb=a._memset=function(){return a.asm._memset.apply(null,arguments)};a._hdnode_fingerprint=function(){return a.asm._hdnode_fingerprint.apply(null,arguments)};var T=a._malloc=function(){return a.asm._malloc.apply(null,arguments)};a._emscripten_get_global_libc=function(){return a.asm._emscripten_get_global_libc.apply(null,arguments)};var eb=a._memcpy=function(){return a.asm._memcpy.apply(null,
+arguments)};a._hdnode_public_ckd=function(){return a.asm._hdnode_public_ckd.apply(null,arguments)};a.stackAlloc=function(){return a.asm.stackAlloc.apply(null,arguments)};a.setThrew=function(){return a.asm.setThrew.apply(null,arguments)};var db=a._sbrk=function(){return a.asm._sbrk.apply(null,arguments)};a._hdnode_deserialize=function(){return a.asm._hdnode_deserialize.apply(null,arguments)};a.stackRestore=function(){return a.asm.stackRestore.apply(null,arguments)};a._hdnode_public_ckd_address_optimized=
+function(){return a.asm._hdnode_public_ckd_address_optimized.apply(null,arguments)};var ra=a._llvm_bswap_i32=function(){return a.asm._llvm_bswap_i32.apply(null,arguments)};f.f=a.stackAlloc;f.g=a.stackSave;f.c=a.stackRestore;f.J=a.establishStackSpace;f.s=a.setTempRet0;f.A=a.getTempRet0;a.asm=v;if(E)if("function"===typeof a.locateFile?E=a.locateFile(E):a.memoryInitializerPrefixURL&&(E=a.memoryInitializerPrefixURL+E),P||G)G=a.readBinary(E),t.set(G,f.h);else{var Ua=function(){a.readAsync(E,Ta,function(){throw"could not load memory initializer "+
+E;})};ja();var Ta=function(b){b.byteLength&&(b=new Uint8Array(b));t.set(b,f.h);a.memoryInitializerRequest&&delete a.memoryInitializerRequest.response;ka()};a.memoryInitializerRequest?(G=function(){var b=a.memoryInitializerRequest;200!==b.status&&0!==b.status?(console.warn("a problem seems to have happened with Module.memoryInitializerRequest, status: "+b.status+", retrying "+E),Ua()):Ta(b.response)},a.memoryInitializerRequest.response?setTimeout(G,0):a.memoryInitializerRequest.addEventListener("load",
+G)):Ua()}O.prototype=Error();O.prototype.constructor=O;var bb,Ma=null,V=function d(){a.calledRun||na();a.calledRun||(V=d)};a.callMain=a.G=function(d){function c(){for(var a=0;3>a;a++)f.push(0)}d=d||[];X||(X=!0,N(ca));var e=d.length+1,f=[S(ia(a.thisProgram),"i8",0)];c();for(var h=0;h<e-1;h+=1)f.push(S(ia(d[h]),"i8",0)),c();f.push(0);f=S(f,"i32",0);try{var g=a._main(e,f,0);Na(g,!0)}catch(l){l instanceof O||("SimulateInfiniteLoop"==l?a.noExitRuntime=!0:((d=l)&&"object"===typeof l&&l.stack&&(d=[l,l.stack]),
+a.e("exception thrown: "+d),a.quit(1,l)))}finally{}};a.run=a.run=na;a.exit=a.exit=Na;var Pa=[];a.abort=a.abort=D;if(a.preInit)for("function"==typeof a.preInit&&(a.preInit=[a.preInit]);0<a.preInit.length;)a.preInit.pop()();var La=!0;a.noInitialRun&&(La=!1);a.noExitRuntime=!0;na();var Va=da();a.onRuntimeInitialized=function(){function d(a){var c=new Uint8Array(33);c.set(a.public_key,0);h.set(c,u);c=new Uint8Array(32);c.set(a.chain_code,0);h.set(c,z);q(0,u,v)}function c(a,c,d){U(a,A,200);if(0!==k(A,
+d,0,y,0))throw Error("Wrong XPUB type!!");E=m(y);if(1!==n(y,c))throw Error("Strange return type");if(0===p(y,E,d,A,200))throw Error("Strange return type");return Aa(A)}function e(a,c,d){l(v,z,a,c,D,60,d);return t(D)}function f(a,c,g,h,l){var k=[];d(a);for(a=c;a<=g;a++)k.push(e(a,h,l));return k}var h=a.HEAPU8,g=a._malloc,l=a._hdnode_public_ckd_address_optimized,k=a._hdnode_deserialize,m=a._hdnode_fingerprint,n=a._hdnode_public_ckd,p=a._hdnode_serialize_public,q=a._ecdsa_read_pubkey,t=a.Pointer_stringify,
+v=g(72),u=g(33),z=g(32),y=g(109),D=g(60),A=g(200),E=0;Va.resolve({processMessage:function(a){a=a.data;var d=a.type;switch(d){case "deriveAddressRange":d=f(a.node,a.firstIndex,a.lastIndex,a.version,a.addressFormat);self.postMessage({addresses:d,firstIndex:a.firstIndex,lastIndex:a.lastIndex,i:a.i});break;case "deriveNode":d=c(a.xpub,a.index,a.version);self.postMessage({xpub:d,i:a.i});break;default:throw Error("Unknown message type: "+d);}},loadNode:d,deriveAddress:e,deriveNode:c,deriveAddressRange:f})};
+return Va.r}if("function"===typeof importScripts){var ta=da();self.onmessage=function(u){var H=u.data;"init"===H.type?sa(H.binary).then(function(n){ta.resolve(n)}):ta.r.then(function(n){n.processMessage(u)})}}
+if(true){var Wa=function(u){return function(){if(null===ua)throw Error("fastxpub not yet inited.");return ua[u].apply(void 0,arguments)}},ua=null;module.exports={deriveNode:Wa("deriveNode"),loadNode:Wa("loadNode"),deriveAddress:Wa("deriveAddress"),deriveAddressRange:Wa("deriveAddressRange"),init:function(u){return sa(u).then(function(u){ua=u})}}};
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2)))
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+// shim for using process in browser
+var process = module.exports = {};
+
+// cached from whatever global is present so that test runners that stub it
+// don't break things.  But we need to wrap it in a try catch in case it is
+// wrapped in strict mode code which doesn't define any globals.  It's inside a
+// function because try/catches deoptimize in certain engines.
+
+var cachedSetTimeout;
+var cachedClearTimeout;
+
+function defaultSetTimout() {
+    throw new Error('setTimeout has not been defined');
+}
+function defaultClearTimeout () {
+    throw new Error('clearTimeout has not been defined');
+}
+(function () {
+    try {
+        if (typeof setTimeout === 'function') {
+            cachedSetTimeout = setTimeout;
+        } else {
+            cachedSetTimeout = defaultSetTimout;
+        }
+    } catch (e) {
+        cachedSetTimeout = defaultSetTimout;
+    }
+    try {
+        if (typeof clearTimeout === 'function') {
+            cachedClearTimeout = clearTimeout;
+        } else {
+            cachedClearTimeout = defaultClearTimeout;
+        }
+    } catch (e) {
+        cachedClearTimeout = defaultClearTimeout;
+    }
+} ())
+function runTimeout(fun) {
+    if (cachedSetTimeout === setTimeout) {
+        //normal enviroments in sane situations
+        return setTimeout(fun, 0);
+    }
+    // if setTimeout wasn't available but was latter defined
+    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+        cachedSetTimeout = setTimeout;
+        return setTimeout(fun, 0);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedSetTimeout(fun, 0);
+    } catch(e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+            return cachedSetTimeout.call(null, fun, 0);
+        } catch(e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+            return cachedSetTimeout.call(this, fun, 0);
+        }
+    }
+
+
+}
+function runClearTimeout(marker) {
+    if (cachedClearTimeout === clearTimeout) {
+        //normal enviroments in sane situations
+        return clearTimeout(marker);
+    }
+    // if clearTimeout wasn't available but was latter defined
+    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+        cachedClearTimeout = clearTimeout;
+        return clearTimeout(marker);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedClearTimeout(marker);
+    } catch (e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+            return cachedClearTimeout.call(null, marker);
+        } catch (e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+            return cachedClearTimeout.call(this, marker);
+        }
+    }
+
+
+
+}
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+    if (!draining || !currentQueue) {
+        return;
+    }
+    draining = false;
+    if (currentQueue.length) {
+        queue = currentQueue.concat(queue);
+    } else {
+        queueIndex = -1;
+    }
+    if (queue.length) {
+        drainQueue();
+    }
+}
+
+function drainQueue() {
+    if (draining) {
+        return;
+    }
+    var timeout = runTimeout(cleanUpNextTick);
+    draining = true;
+
+    var len = queue.length;
+    while(len) {
+        currentQueue = queue;
+        queue = [];
+        while (++queueIndex < len) {
+            if (currentQueue) {
+                currentQueue[queueIndex].run();
+            }
+        }
+        queueIndex = -1;
+        len = queue.length;
+    }
+    currentQueue = null;
+    draining = false;
+    runClearTimeout(timeout);
+}
+
+process.nextTick = function (fun) {
+    var args = new Array(arguments.length - 1);
+    if (arguments.length > 1) {
+        for (var i = 1; i < arguments.length; i++) {
+            args[i - 1] = arguments[i];
+        }
+    }
+    queue.push(new Item(fun, args));
+    if (queue.length === 1 && !draining) {
+        runTimeout(drainQueue);
+    }
+};
+
+// v8 likes predictible objects
+function Item(fun, array) {
+    this.fun = fun;
+    this.array = array;
+}
+Item.prototype.run = function () {
+    this.fun.apply(null, this.array);
+};
+process.title = 'browser';
+process.browser = true;
+process.env = {};
+process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+process.versions = {};
+
+function noop() {}
+
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+
+process.listeners = function (name) { return [] }
+
+process.binding = function (name) {
+    throw new Error('process.binding is not supported');
+};
+
+process.cwd = function () { return '/' };
+process.chdir = function (dir) {
+    throw new Error('process.chdir is not supported');
+};
+process.umask = function() { return 0; };
+
+
+/***/ })
+/******/ ]);
