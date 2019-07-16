@@ -69,14 +69,16 @@ btn.onclick = () => {
 }
 
 // print log helper
-function printLog(data) {
+function printLog(data, prettyPrint = true) {
     const log = document.getElementById('log');
-    const current = log.value;
-    if (current.length > 0) {
-        log.value = JSON.stringify(data) + '\n\n' + current;
+    let logObj;
+    if (log.value.length > 0) {
+        logObj = JSON.parse(log.value);
+        logObj.unshift(data);
     } else {
-        log.value = JSON.stringify(data);
+        logObj = [data];
     }
+    log.value = JSON.stringify(logObj, null, prettyPrint ? 2 : 0);
 }
 
 // UI.RESPONSE helper (used with "popup: false")
