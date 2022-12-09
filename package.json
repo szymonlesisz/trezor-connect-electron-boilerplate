@@ -12,7 +12,7 @@
     "electron-installer-dmg": "^2.0.0",
     "electron-packager": "^13.1.1",
     "electron-winstaller": "^3.0.4",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "trezor-connect": "7.0.2-electron.2"
   }
 }
